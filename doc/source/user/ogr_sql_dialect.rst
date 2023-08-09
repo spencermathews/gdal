@@ -37,8 +37,8 @@ form of OGR SQL SELECT statement looks like this:
 
 In this case all features are fetched from the layer named "polylayer", and
 all attributes of those features are returned. This is essentially
-equivalent to accessing the layer directly. In this example the "*"
-is the list of fields to fetch from the layer, with "*" meaning that all
+equivalent to accessing the layer directly. In this example the "``*``"
+is the list of fields to fetch from the layer, with "``*``" meaning that all
 fields should be fetched.
 
 This slightly more sophisticated form still pulls all features from the layer
@@ -419,9 +419,9 @@ asterix with the table name.
 The field names in the resulting query layer will be qualified by the table
 name, if the table name is given as a qualifier in the field list.  In addition
 field names will be qualified with a table name if they would conflict with
-earlier fields.  For instance, the following select would result might result
-in a results set with a **name, nation_id, nation.nation_id** and **
-nation.name** field if the city and nation tables both have the
+earlier fields.  For instance, the following select would result
+in a result set containing the **name**, **nation_id**, **nation.nation_id**, and
+**nation.name** fields if the city and nation tables both have the
 **nation_id** and **name** fieldnames.
 
 .. code-block::
@@ -472,7 +472,7 @@ It is possible to do multiple joins in a single query.
     LEFT JOIN nation ON city.nation_id = nation.id
 
 The expression after ON is typically of the form
-"{primary_table}.{field_name} = {secondary_table}.{field_name}", and in that
+**{primary_table}.{field_name} = {secondary_table}.{field_name}**, and in that
 order.
 It is also possible to use a more complex boolean expression,
 involving multiple comparison operators, but with the restrictions mentioned
@@ -545,7 +545,7 @@ by default. Users do not need to select the geometry explicitly but it is still
 possible to do so. Common use case is when geometry is the only field that is needed.
 In this case the name of the geometry field to be used in the SQL statement is the
 name returned by :cpp:func:`OGRLayer::GetGeometryColumn`. If the method returns
-an empty string then a special name "_ogr_geometry_" must be used. The name begins
+an empty string then a special name ``"_ogr_geometry_"`` must be used. The name begins
 with an underscore and SQL syntax requires that it must appear between double quotes.
 In addition the command line interpreter may require that double quotes are escaped
 and the final SELECT statement could look like:
